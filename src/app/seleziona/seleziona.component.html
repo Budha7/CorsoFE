@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col">
+      <div *ngIf ="selezionato" >Hai scelto {{ selezionato }}</div>
+      <br>
+      <select [(ngModel)]="selezionato">
+        <option value="" disabled selected="selected">Seleziona</option>
+        <option *ngFor="let item of lista; index as i" value="{{ item }}">{{ item }}</option>
+      </select>
+  </div>
+</div>
+
+
+<!-- con il getCountry restituire le informazioni sul paese scelto -->

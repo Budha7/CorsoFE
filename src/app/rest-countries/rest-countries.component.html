@@ -1,0 +1,69 @@
+<div class="container" style="background-color: white; padding: 0px;">
+    <div class="card-body p-0">
+        <table class="table table-striped projects">
+            <thead>
+                <tr>
+                    <th class="tb-indice">
+                        #
+                    </th>
+                    <th style="width: 5%">
+                        Bandiera
+                    </th>
+                    <th style="width: 20%">
+                        Nazione
+                    </th>
+                    <th style="width: 20%">
+                        Capitale
+                    </th>
+                    <th style="width: 20%">
+                        Popolazione
+                    </th>
+                    <th style="width: 20%">
+                        Area
+                    </th>
+                    <th style="width: 20%">
+                        Continente
+                    </th>   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let country of countries; let i=index;">
+                    <td>
+                        {{(i + 1) + (page - 1) * pageSize}}
+                    </td>
+                    <td>
+                        <img width="30px" height="15px" src={{country.bandiera}}>
+                    </td>
+                    <td>
+                        {{country.nome}}
+                    </td>
+                    <td>
+                        {{country.capitale}}
+                    </td>
+                    <td>
+                        {{country.popolazione | number}}
+                    </td>
+                    <td>
+                        {{country.area | number}}
+                    </td>
+                    <td>
+                        {{country.continente}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between p-2">
+            <ngb-pagination [collectionSize]="collectionSize" [page]="page" [pageSize]="pageSize"
+                (pageChange)="refreshCountries()">
+            </ngb-pagination>
+            <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+                <option [ngValue]="15">15 items per page</option>
+                <option [ngValue]="20">20 items per page</option>
+                <option [ngValue]="50">50 items per page</option>
+                <option [ngValue]="100">100 items per page</option>
+                <option [ngValue]="150">150 items per page</option>
+            </select>
+        </div>
+    </div>
+</div>
