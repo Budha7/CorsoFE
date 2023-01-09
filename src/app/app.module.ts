@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { Seleziona } from './seleziona/seleziona.component';
 import { RestCountriesComponent } from './rest-countries/rest-countries.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Seleziona,
-    RestCountriesComponent
+    RestCountriesComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,

@@ -25,6 +25,10 @@ export class RestCountriesService {
     return this.httpClient.get<Country[]>(this.indirizzo + 'alpha/' + code);
   }
 
+  getRandomCountries(numPaesi: number): any{
+    //Estrazione e restituzione dei campi indicati nella return e convertiti tramite pipe
+    return this.httpClient.get<Country[]>(this.indirizzo + 'all');
+  }
 }
 
 //NUOVO COMPONENT
